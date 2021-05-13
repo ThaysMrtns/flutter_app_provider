@@ -34,20 +34,24 @@ class _SearchBodyState extends State<SearchBody> {
   }
 }
 
-Container card(heightCard, marginCard) {
-  return Container(
-    margin: marginCard,
-    height: heightCard,
-    decoration: BoxDecoration(
-      color: Colors.lightBlue[300],
-      boxShadow: [
-        BoxShadow(
-          color: Colors.grey,
-          blurRadius: 8,
-          spreadRadius: 2,
-          offset: Offset(2, 4),
+GestureDetector card(heightCard, marginCard) {
+  return GestureDetector(
+      onTap: () {
+        print("adicionar aos favoritos");
+      },
+      child: Container(
+        margin: marginCard,
+        height: heightCard,
+        decoration: BoxDecoration(
+          color: Colors.lightBlue[300],
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              blurRadius: 8,
+              spreadRadius: 2,
+              offset: Offset(2, 4),
+            ),
+          ],
         ),
-      ],
-    ),
-  );
+      ));
 }
