@@ -8,6 +8,8 @@ class SearchBody extends StatefulWidget {
 class _SearchBodyState extends State<SearchBody> {
   @override
   Widget build(BuildContext context) {
+    double widthCard = MediaQuery.of(context).size.width * .2;
+    double heightCard = MediaQuery.of(context).size.height * .2;
     return Container(
       margin: EdgeInsets.only(top: 20, bottom: 40),
       padding: EdgeInsets.all(20),
@@ -20,20 +22,20 @@ class _SearchBodyState extends State<SearchBody> {
                 Container(
                   margin: EdgeInsets.only(bottom: 40),
                   color: Colors.blueGrey,
-                  width: MediaQuery.of(context).size.width * .2,
-                  height: MediaQuery.of(context).size.height * .2,
+                  width: widthCard,
+                  height: heightCard,
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 40),
                   color: Colors.blue,
-                  width: MediaQuery.of(context).size.width * .2,
-                  height: MediaQuery.of(context).size.height * .2,
+                  width: widthCard,
+                  height: heightCard,
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 40),
                   color: Colors.blueGrey,
-                  width: MediaQuery.of(context).size.width * .2,
-                  height: MediaQuery.of(context).size.height * .2,
+                  width: widthCard,
+                  height: heightCard,
                 ),
               ],
             ),
