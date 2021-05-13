@@ -7,10 +7,17 @@ class SearchBody extends StatefulWidget {
 }
 
 class _SearchBodyState extends State<SearchBody> {
+  EdgeInsets marginCard = EdgeInsets.only(bottom: 40, left: 30, right: 30);
+  var iconColor;
+  @override
+  void initState() {
+    iconColor = Colors.grey;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    double heightCard = MediaQuery.of(context).size.height * .2;
-    EdgeInsets marginCard = EdgeInsets.only(bottom: 40, left: 30, right: 30);
+    double heightCard = MediaQuery.of(context).size.height * .12;
 
     return Container(
       child: Column(
@@ -25,6 +32,7 @@ class _SearchBodyState extends State<SearchBody> {
                 card(heightCard, marginCard),
                 card(heightCard, marginCard),
                 card(heightCard, marginCard),
+                card(heightCard, marginCard),
                 SizedBox(height: 40),
               ],
             ),
@@ -33,14 +41,9 @@ class _SearchBodyState extends State<SearchBody> {
       ),
     );
   }
-}
 
-GestureDetector card(heightCard, marginCard) {
-  return GestureDetector(
-    onTap: () {
-      print("adicionar aos favoritos");
-    },
-    child: Container(
+  Container card(heightCard, marginCard) {
+    return Container(
       margin: marginCard,
       height: heightCard,
       decoration: BoxDecoration(
@@ -58,20 +61,24 @@ GestureDetector card(heightCard, marginCard) {
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: IconButton(
-              icon: Icon(
-                FontAwesomeIcons.solidHeart,
-                color: Colors.red,
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                iconColor == Colors.grey
+                    ? iconColor = Colors.red
+                    : iconColor = Colors.grey;
+              });
+            },
+            child: Padding(
+              padding: EdgeInsets.all(20),
+              child: Icon(
+                FontAwesomeIcons.bookmark,
+                color: iconColor,
               ),
-              onPressed: () {
-                print("favoritar");
-              },
             ),
           )
         ],
       ),
-    ),
-  );
+    );
+  }
 }
