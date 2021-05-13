@@ -8,31 +8,23 @@ class SearchBody extends StatefulWidget {
 class _SearchBodyState extends State<SearchBody> {
   @override
   Widget build(BuildContext context) {
-    double widthCard = MediaQuery.of(context).size.width * .2;
     double heightCard = MediaQuery.of(context).size.height * .2;
-    EdgeInsets marginCard = EdgeInsets.only(bottom: 40);
-
-    Container card() {
-      return Container(
-        margin: marginCard,
-        color: Colors.blueGrey,
-        width: widthCard,
-        height: heightCard,
-      );
-    }
+    EdgeInsets marginCard = EdgeInsets.only(bottom: 40, left: 30, right: 30);
 
     return Container(
-      margin: EdgeInsets.only(top: 20, bottom: 40),
-      padding: EdgeInsets.all(20),
       child: Column(
         children: [
           Expanded(
             flex: 1,
             child: ListView(
               children: [
-                card(),
-                card(),
-                card(),
+                SizedBox(height: 40),
+                card(heightCard, marginCard),
+                card(heightCard, marginCard),
+                card(heightCard, marginCard),
+                card(heightCard, marginCard),
+                card(heightCard, marginCard),
+                SizedBox(height: 40),
               ],
             ),
           ),
@@ -40,4 +32,22 @@ class _SearchBodyState extends State<SearchBody> {
       ),
     );
   }
+}
+
+Container card(heightCard, marginCard) {
+  return Container(
+    margin: marginCard,
+    height: heightCard,
+    decoration: BoxDecoration(
+      color: Colors.lightBlue[300],
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey,
+          blurRadius: 8,
+          spreadRadius: 2,
+          offset: Offset(2, 4),
+        ),
+      ],
+    ),
+  );
 }
