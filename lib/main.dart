@@ -23,7 +23,7 @@ class Home extends StatelessWidget {
     );
   }
 }
-
+// Signin deve ficar no main ou no home?
 class SignInModel with ChangeNotifier{
   String _user = ''; 
   String get user => _user; 

@@ -1,21 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'search/search.dart';
 import 'login/login.dart';
-
-// SignInModel => Classe responsável encapsular os dados do login 
-class SignInModel with ChangeNotifier{
-  // ChangeNotifier => Responsável por notificar mudanças no SignInModel e notificar aos seus ouvintes
-  String _user = ''; // Nome do usuário
-  String get user => _user; // get que recebe e um nome retorna um novo nome 
-
-  void signIn(String userName){
-    _user = userName;
-
-    // NotifyListeners => notifica aos ouvintes que a classe sofreu alguma mudança
-    notifyListeners();
-  }
-}
+import '../main.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -25,10 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    // ChangeNotifierProvider => Fornece uma instância do NotifierProvider para outros widgets
-    return ChangeNotifierProvider(
-      create: (_) => SignInModel(), // Esse símbolo _ representa um BuildContext
-      child: Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: hexToColor("#FFFFFF"),
@@ -53,7 +37,7 @@ class _HomePageState extends State<HomePage> {
         ]
       ),
       body: HomeBody(),
-    ));
+    );
   }
 
   Color hexToColor(String hexCode) {
@@ -78,7 +62,7 @@ class _HomeBodyState extends State<HomeBody> {
         children: [ 
           Consumer<SignInModel>(
             builder: (context, userModel, child){
-              String message = (userModel.user == ""? "Por favor, faça login.": "Olá, ${userModel.user}");
+              String message = (userModel.user == ""? "Por favor, faça login.": "Olá, ${userModel.user}.");
               return Text(message);
             }
           )
