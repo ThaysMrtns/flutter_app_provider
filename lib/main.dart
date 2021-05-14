@@ -30,7 +30,6 @@ class SignInModel with ChangeNotifier{
 
   void signIn(String userName){
     _user = userName;
-
     notifyListeners();
   }
 }
