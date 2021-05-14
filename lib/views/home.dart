@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'search/search.dart';
 
 class HomePage extends StatefulWidget {
@@ -172,5 +173,35 @@ class _HomeBodyState extends State<HomeBody> {
   Color hexToColor(String hexCode) {
     return new Color(
         int.parse(hexCode.substring(1, 7), radix: 16) + 0xFF000000);
+  }
+}
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // ChangeNotifierProvider => Fornece uma instância do NotifierProvider para outros widgets
+    return ChangeNotifierProvider( 
+      create: (_){}, // Esse símbolo _ representa um BuildContext 
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: HomePage(),
+      ),
+    );
+  }
+}
+
+// SignInModel => Classe responsável encapsular os dados do login 
+class SignInModel with ChangeNotifier{
+  // ChangeNotifier => Responsável por notificar mudanças no SignInModel e notificar aos seus ouvintes
+  String _user = ''; // Nome do usuário
+  String get user => _user; // get que recebe e um nome retorna um novo nome 
+
+  void signIn(String userName){
+    _user = userName;
+    // NotifyListeners => notifica aos ouvintes que a classe sofreu alguma mudança
+    notifyListeners();
   }
 }

@@ -47,15 +47,15 @@ class _SearchBodyState extends State<SearchBody> {
       margin: marginCard,
       height: heightCard,
       decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey,
-            blurRadius: 8,
-            spreadRadius: 2,
-            offset: Offset(2, 4),
-          ),
-        ],
+        color: Colors.amber[200],
+        //boxShadow: [
+        //  BoxShadow(
+        //    color: Colors.grey,
+        //    blurRadius: 8,
+        //    spreadRadius: 2,
+        //    offset: Offset(2, 4),
+        //  ),
+        //],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
