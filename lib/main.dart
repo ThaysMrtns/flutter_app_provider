@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'views/home.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(Home());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => SignInModel(),
+      child: Home(),
+    )  
+  );
 }
 
 class Home extends StatelessWidget {
@@ -15,6 +21,17 @@ class Home extends StatelessWidget {
       ),
       home: HomePage(),
     );
+  }
+}
+
+class SignInModel with ChangeNotifier{
+  String _user = ''; 
+  String get user => _user; 
+
+  void signIn(String userName){
+    _user = userName;
+
+    notifyListeners();
   }
 }
 
