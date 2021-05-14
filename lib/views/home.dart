@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'login/login.dart';
 import '../main.dart';
 import 'package:provider/provider.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -53,8 +54,19 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
+  var iconColor;
+
+  @override
+  void initState() {
+    iconColor = Colors.grey;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    double heightCard = MediaQuery.of(context).size.height * .12;
+    EdgeInsets marginCard = EdgeInsets.only(bottom: 40, left: 30, right: 30);
+    
     return Container(
       margin: EdgeInsets.only(top: 20, bottom: 40),
       padding: EdgeInsets.all(20),
@@ -65,10 +77,11 @@ class _HomeBodyState extends State<HomeBody> {
               String message = (userModel.user == ""? "Por favor, faça login.": "Olá, ${userModel.user}.");
               return Text(message);
             }
-          )
+          ),
         ],)
     );
   }
+  
 }
 
   
