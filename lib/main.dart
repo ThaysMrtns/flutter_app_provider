@@ -4,10 +4,12 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => SignInModel(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<SignInModel>(create: (_) => SignInModel()),
+      ],
       child: Home(),
-    )  
+    ),
   );
 }
 
@@ -23,14 +25,14 @@ class Home extends StatelessWidget {
     );
   }
 }
-// Signin deve ficar no main ou no home?
-class SignInModel with ChangeNotifier{
-  String _user = ''; 
-  String get user => _user; 
 
-  void signIn(String userName){
+// Signin deve ficar no main ou no home?
+class SignInModel extends ChangeNotifier {
+  String _user = '';
+  String get user => _user;
+
+  void signIn(String userName) {
     _user = userName;
     notifyListeners();
   }
 }
-
