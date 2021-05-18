@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
 import 'views/home.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() {
+  // Inicializar o firebase
+  WidgetsFlutterBinding.ensureInitialized();
+
+  Firebase.initializeApp().whenComplete(() {
+    print("completed");
+  });
+  //FirebaseFirestore.instance
+  //    .collection("usuarios")
+  //    .doc("pontuação")
+  //    .set({"Ana": "250", "João": "100"});
+
   runApp(
     MultiProvider(
       providers: [

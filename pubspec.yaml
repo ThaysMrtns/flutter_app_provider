@@ -30,10 +30,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   font_awesome_flutter: ^9.0.0
   provider: ^5.0.0
-  firebase_core: ^1.2.0
-  firebase_auth: ^1.2.0
-  cloud_firestore: ^2.2.0
-  firebase_storage: ^8.1.0
+  firebase_core: ^1.2.0 # Recursos básicos
+  firebase_auth: ^1.2.0 # Autenticação de usuários
+  cloud_firestore: ^2.2.0 # Banco de dados
+  firebase_storage: ^8.1.0 # Armazenamento de arquivos
 
 dev_dependencies:
   flutter_test:
