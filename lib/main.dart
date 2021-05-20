@@ -15,17 +15,12 @@ void main ()  async {
   FirebaseFirestore db = FirebaseFirestore.instance;
 
   await db.collection("usuarios")
-    .doc("001")
+    .doc()
     .set({
-        "nome": "André",
-        "email": "andre@gmail.com",
+        "nome": "Andreia",
+        "email": "andreia@gmail.com",
         "senha": "123456",
     });
-
-  //await FirebaseFirestore.instance
-  //  .collection("usuarios")
-  //  .doc("pontuação")
-  //  .set({"Ana": "250", "João": "100"});
 
   runApp(
     MultiProvider(
