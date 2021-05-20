@@ -31,6 +31,15 @@ void main ()  async {
   //  .doc("3NabQUpYrdhkNQ7lVOxT")
   //  .get();
   //print("data: ${snapchat.data().toString()}");
+  QuerySnapshot querySnapshot = await db
+    .collection("usuarios")
+    .get();
+  
+  print(querySnapshot.docs.toString());
+
+  for(DocumentSnapshot i in querySnapshot.docs){
+    print(i.data().toString());
+  }
 
   // update
   //await db.collection("usuarios")
