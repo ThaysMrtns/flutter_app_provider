@@ -15,6 +15,7 @@ void main ()  async {
 
   FirebaseFirestore db = FirebaseFirestore.instance;
 
+  // create
   //DocumentReference ref = await db.collection("usuarios")
   //  .add({
   //      "nome": "Aninha",
@@ -22,8 +23,16 @@ void main ()  async {
   //      "senha": "123456",
   //  });
   //
-  //print(ref.id);
 
+  // read
+  //print(ref.id);
+  // O documento snapchot faz a captura do momento atual do objeto consultado
+  //DocumentSnapshot snapchat = await db.collection("usuarios")
+  //  .doc("3NabQUpYrdhkNQ7lVOxT")
+  //  .get();
+  //print("data: ${snapchat.data().toString()}");
+
+  // update
   //await db.collection("usuarios")
   //  .doc("qHPf5xdIKJWjcNOrwYQU")
   //  .set({
@@ -32,9 +41,10 @@ void main ()  async {
   //    "senha": "123456"
   //  });
 
-  await db.collection("usuarios")
-    .doc("qHPf5xdIKJWjcNOrwYQU")
-    .delete();
+  // delete
+  //await db.collection("usuarios")
+  //  .doc("qHPf5xdIKJWjcNOrwYQU")
+  //  .delete();
 
   runApp(
     MultiProvider(
