@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 import 'views/home.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -14,13 +15,14 @@ void main ()  async {
 
   FirebaseFirestore db = FirebaseFirestore.instance;
 
-  await db.collection("usuarios")
-    .doc()
-    .set({
-        "nome": "Andreia",
-        "email": "andreia@gmail.com",
+  DocumentReference ref = await db.collection("usuarios")
+    .add({
+        "nome": "Aninha",
+        "email": "aninha@gmail.com",
         "senha": "123456",
     });
+  
+  print(ref.id);
 
   runApp(
     MultiProvider(
