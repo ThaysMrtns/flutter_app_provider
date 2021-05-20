@@ -15,14 +15,22 @@ void main ()  async {
 
   FirebaseFirestore db = FirebaseFirestore.instance;
 
-  DocumentReference ref = await db.collection("usuarios")
-    .add({
-        "nome": "Aninha",
-        "email": "aninha@gmail.com",
-        "senha": "123456",
+  //DocumentReference ref = await db.collection("usuarios")
+  //  .add({
+  //      "nome": "Aninha",
+  //      "email": "aninha@gmail.com",
+  //      "senha": "123456",
+  //  });
+  //
+  //print(ref.id);
+
+  await db.collection("usuarios")
+    .doc("qHPf5xdIKJWjcNOrwYQU")
+    .set({
+      "nome": "Sucy cogumelo",
+      "email": "sucy@gmail.com",
+      "senha": "123456"
     });
-  
-  print(ref.id);
 
   runApp(
     MultiProvider(
