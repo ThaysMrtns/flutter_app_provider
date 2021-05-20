@@ -24,13 +24,17 @@ void main ()  async {
   //
   //print(ref.id);
 
+  //await db.collection("usuarios")
+  //  .doc("qHPf5xdIKJWjcNOrwYQU")
+  //  .set({
+  //    "nome": "Sucy cogumelo",
+  //    "email": "sucy@gmail.com",
+  //    "senha": "123456"
+  //  });
+
   await db.collection("usuarios")
     .doc("qHPf5xdIKJWjcNOrwYQU")
-    .set({
-      "nome": "Sucy cogumelo",
-      "email": "sucy@gmail.com",
-      "senha": "123456"
-    });
+    .delete();
 
   runApp(
     MultiProvider(
